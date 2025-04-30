@@ -6,7 +6,8 @@
     height: 40px;
 }
 
-.sheepActions {
+.sheepActions,
+.nav-links {
     display:flex;
     justify-content: flex-end;
     gap: 10px;

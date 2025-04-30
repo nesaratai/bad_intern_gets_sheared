@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session')
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const isSignedIn = require('./middleware/is-signed-in.js');
@@ -10,7 +11,7 @@ const authController = require('./controllers/auth.js');
 const path = require('path');
 const runSeeder = require('./seeder')
 const sheepRouter = require('./controllers/sheep.js')
-
+const breedRouter = require('./controllers/breeds.js')
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -59,11 +60,11 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authController);
 app.use(isSignedIn);
-app.use('/breed/',breedRouter);
-app.use('/sheep/',sheepRouter);
+app.use('/breed',breedRouter);
+app.use('/sheep',sheepRouter);
 
 
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
-
+});

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Breed = require('../models/breed.js');
-
+const Sheep = require('../models/sheep.js');
 
 // Shear or Unshear the Sheep
 router.put('/:sheepId/mark/:shearStatus', async (req, res) => {
